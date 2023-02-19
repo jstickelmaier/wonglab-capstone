@@ -82,3 +82,24 @@ Ex.
 
 ```
 
+### Model Design
+1. Choose input, output size, forward pass
+2. Construct loss and optimizer
+3. Training loop
+    - forward pass: compute prediciton
+    - backward pass: gradients
+    - update weights
+
+### Activation Functions
+
+Without activation function, each layer is basically just a linear regression model. Activation functions are a nonlinear funciton wrapped around this linear funciton which determines whether or not a particular neuron in the layer should be activated.
+
+ - Sigmoid: typically last layer of bianary classification
+ - TanH: good choice in hidden layers
+ - ReLU: good for hidden layers, zero for negative values. Most popular choice
+ - Leaky ReLU: tries to solve vanishing gradient problem caused by zeroing negative values (which kills neurons, weights never updating)
+ - Softmax: good last layer in multiclass classification problems to squash output into probability
+
+ To add activation to layers, you first put into layer, then pass to the activation function. You can define the activation in both the `__init__` or `forward` definitions in your model class. 
+
+
